@@ -46,6 +46,8 @@ const (
 	PanicLevel = zapcore.PanicLevel
 	// FatalLevel logs a message, then calls os.Exit(1).
 	FatalLevel = zapcore.FatalLevel
+
+	FireLevel = zapcore.FireLevel
 )
 
 // LevelEnablerFunc is a convenient way to implement zapcore.LevelEnabler with

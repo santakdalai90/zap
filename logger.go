@@ -229,6 +229,14 @@ func (log *Logger) Warn(msg string, fields ...Field) {
 	}
 }
 
+// Fire logs a message at WarnLevel. The message includes any fields passed
+// at the log site, as well as any fields accumulated on the logger.
+func (log *Logger) Fire(msg string, fields ...Field) {
+	if ce := log.check(FireLevel, msg); ce != nil {
+		ce.Write(fields...)
+	}
+}
+
 // Error logs a message at ErrorLevel. The message includes any fields passed
 // at the log site, as well as any fields accumulated on the logger.
 func (log *Logger) Error(msg string, fields ...Field) {
